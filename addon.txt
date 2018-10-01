@@ -1,0 +1,9 @@
+"AddonInfo"
+{
+	"name"        "Metrostroi Helper"
+	"version"     "Git"
+	"author_name" "Pollitto"
+	"author_url"  "https://steamcommunity.com/id/KyppuTTo/"
+	"info"        "Metrostroi Helper shows a few train system state on the screen."
+	"override"    "0"
+}
