@@ -1,3 +1,4 @@
+if not Metrostroi or not Metrostroi.Version or Metrostroi.Version < 1496343479 then Msg("This Metrostroi version isn't compatible for helper.\n") end
 AddCSLuaFile()
 if SERVER then
 	util.AddNetworkString("MTHelper")
@@ -12,6 +13,7 @@ if SERVER then
 	}
 	local trains = {}
 	hook.Add("PlayerEnteredVehicle", "MTHelperEnter", function(ply, veh, _)
+		if not veh:GetNW2Entity("TrainEntity") then return end
 		if !table.HasValue( trainFilter, veh:GetNW2Entity("TrainEntity"):GetClass() ) then return end
 
 		if !table.HasValue( trains, veh:GetNW2Entity("TrainEntity") ) then
@@ -24,6 +26,7 @@ if SERVER then
 	end)
 
 	hook.Add("PlayerLeaveVehicle", "MTHelperLeave", function(ply, veh)
+		if not veh:GetNW2Entity("TrainEntity") then return end
 		if !table.HasValue( trainFilter, veh:GetNW2Entity("TrainEntity"):GetClass() ) then return end
 
 		if table.HasValue( trains, veh:GetNW2Entity("TrainEntity") ) then
